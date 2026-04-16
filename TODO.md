@@ -3,7 +3,8 @@
 ## Progress
 - [x] Initial build complete
 - [x] Feedback: Product images, backgrounds, logo ("Strikes" company)
-- [ ] Apply updates
-- [ ] Re-complete
+- [x] Apply updates
+- [x] Re-complete
+- [x] Uploaded to GitHub
 
-Updated for feedback iteration.
+All tasks completed. Website ready!
