@@ -9,7 +9,54 @@
 <body>
   <header>
 <div class="logo">
-  <img src="logo.svg" alt="Strikes Logo" style="height:80px; width:auto; filter: drop-shadow(0 0 20px #00ff88); border-radius: 8px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" height="90" style="filter: drop-shadow(0 4px 25px rgba(0,221,235,0.6)); border-radius: 12px; image-rendering: crisp-edges;">
+  <defs>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a1f"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="neonGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00ddeb" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#bb00ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="textGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#00ddeb" result="glow1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#bb00ff" result="glow2"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00ff88" result="glow3"/>
+      <feMerge>
+        <feMergeNode in="glow3"/>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
+        <feMergeNode/>
+      </feMerge>
+    </filter>
+    <filter id="sharpBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </defs>
+  <!-- Glassmorphism Background -->
+  <rect width="400" height="100" rx="20" fill="url(#logoBg)" stroke="url(#neonGlow)" stroke-width="3" opacity="0.95"/>
+  <rect x="2" y="2" width="396" height="96" rx="18" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
+  
+  <!-- Stylish Text with 3D effect -->
+  <text x="200" y="55" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="34" font-weight="900" fill="#ffffff" stroke="#0a0a1f" stroke-width="1.2" text-anchor="middle" filter="url(#textGlow)" letter-spacing="1.5" font-kerning="auto">STRIKES</text>
+  <text x="200" y="72" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="12" font-weight="600" fill="url(#neonGlow)" text-anchor="middle" letter-spacing="1.8" opacity="0.9">E·C O M M E R C E</text>
+  
+  <!-- Dynamic Particles/Ornaments -->
+  <circle cx="50" cy="30" r="10" fill="#00ddeb" opacity="0.8" filter="url(#sharpBlur)">
+    <animate attributeName="r" values="10;14;10" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="70" r="8" fill="#bb00ff" opacity="0.85" filter="url(#sharpBlur)">
+    <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 350 70" to="360 350 70" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 80 20 Q 120 50 160 20 T 240 50" stroke="#00ff88" stroke-width="3" fill="none" opacity="0.6" filter="url(#sharpBlur)">
+    <animate attributeName="stroke-dasharray" values="0,300;300,0" dur="4s" repeatCount="indefinite"/>
+  </path>
+</svg>
 </div>
     <div class="header-center">
       <span>Free Shipping | 24/7 Support | Secure Payment</span>
