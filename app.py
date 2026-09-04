@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify, request, send_file
 from flask_mysqldb import MySQL
 
@@ -5,10 +7,10 @@ from analysis import calculate_summary, compare_models, forecast_metrics, top_di
 
 app = Flask(__name__, static_folder=".", static_url_path="")
 
-app.config["MYSQL_HOST"] = "localhost"
-app.config["MYSQL_USER"] = "root"
-app.config["MYSQL_PASSWORD"] = "password"
-app.config["MYSQL_DB"] = "maharashtra_covid"
+app.config["MYSQL_HOST"] = os.environ.get("MYSQL_HOST", "localhost")
+app.config["MYSQL_USER"] = os.environ.get("MYSQL_USER", "root")
+app.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD", "password")
+app.config["MYSQL_DB"] = os.environ.get("MYSQL_DB", "maharashtra_covid")
 
 mysql = MySQL(app)
 
@@ -154,4 +156,4 @@ def get_covid():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
