@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: covid-prediction
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: MYSQL_HOST
+        sync: false
+      - key: MYSQL_USER
+        sync: false
+      - key: MYSQL_PASSWORD
+        sync: false
+      - key: MYSQL_DB
+        sync: false
+      - key: PORT
+        value: 10000

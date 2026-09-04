@@ -12,6 +12,8 @@ let districtLayer;
 let selectedDistrictLayer;
 let selectedDistrict = null;
 
+window.COVID_API_BASE = window.COVID_API_BASE || "https://covid-prediction.onrender.com";
+
 const API_BASE = (() => {
     const customBase = new URLSearchParams(window.location.search).get("api");
     if (customBase) {
