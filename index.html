@@ -1,133 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strikes E-Commerce - Premium Shopping Experience</title>
-  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Maharashtra COVID Analytics</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Leaflet map -->
+        <link rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIINfQ3c2c9v0D2kM9h8l5s8LJ3o3R8kR9s="
+            crossorigin="">
+
 </head>
+
+
 <body>
-  <header>
-<div class="logo">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" height="90" style="filter: drop-shadow(0 4px 25px rgba(0,221,235,0.6)); border-radius: 12px; image-rendering: crisp-edges;">
-  <defs>
-    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0a1f"/>
-      <stop offset="50%" stop-color="#1e3a8a"/>
-      <stop offset="100%" stop-color="#1e1b4b"/>
-    </linearGradient>
-    <radialGradient id="neonGlow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#00ddeb" stop-opacity="0.9"/>
-      <stop offset="50%" stop-color="#bb00ff" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="textGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#00ddeb" result="glow1"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#bb00ff" result="glow2"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00ff88" result="glow3"/>
-      <feMerge>
-        <feMergeNode in="glow3"/>
-        <feMergeNode in="glow2"/>
-        <feMergeNode in="glow1"/>
-        <feMergeNode/>
-      </feMerge>
-    </filter>
-    <filter id="sharpBlur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="0.5"/>
-    </filter>
-  </defs>
-  <!-- Glassmorphism Background -->
-  <rect width="400" height="100" rx="20" fill="url(#logoBg)" stroke="url(#neonGlow)" stroke-width="3" opacity="0.95"/>
-  <rect x="2" y="2" width="396" height="96" rx="18" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
-  
-  <!-- Stylish Text with 3D effect -->
-  <text x="200" y="55" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="34" font-weight="900" fill="#ffffff" stroke="#0a0a1f" stroke-width="1.2" text-anchor="middle" filter="url(#textGlow)" letter-spacing="1.5" font-kerning="auto">STRIKES</text>
-  <text x="200" y="72" font-family="system-ui,-apple-system,'Segoe UI',sans-serif" font-size="12" font-weight="600" fill="url(#neonGlow)" text-anchor="middle" letter-spacing="1.8" opacity="0.9">E·C O M M E R C E</text>
-  
-  <!-- Dynamic Particles/Ornaments -->
-  <circle cx="50" cy="30" r="10" fill="#00ddeb" opacity="0.8" filter="url(#sharpBlur)">
-    <animate attributeName="r" values="10;14;10" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="350" cy="70" r="8" fill="#bb00ff" opacity="0.85" filter="url(#sharpBlur)">
-    <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="rotate" from="0 350 70" to="360 350 70" dur="20s" repeatCount="indefinite"/>
-  </circle>
-  <path d="M 80 20 Q 120 50 160 20 T 240 50" stroke="#00ff88" stroke-width="3" fill="none" opacity="0.6" filter="url(#sharpBlur)">
-    <animate attributeName="stroke-dasharray" values="0,300;300,0" dur="4s" repeatCount="indefinite"/>
-  </path>
-</svg>
-</div>
-    <div class="header-center">
-      <span>Free Shipping | 24/7 Support | Secure Payment</span>
-    </div>
-    <div class="cart-icon" title="View Cart">
-      🛒 <span id="cart-count">0</span>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div>
-      <h1>Welcome to Strikes</h1>
-      <p>Premium Products • Fast Delivery • Best Prices</p>
-    </div>
-  </section>
 
-  <section class="products-section">
-    <h2 class="section-title">Featured Products</h2>
-    <nav style="text-align: center; margin-bottom: 2rem;">
-      <a href="#products-section" class="filter-btn active" data-category="all">All</a>
-      <a href="#products-section" class="filter-btn" data-category="shoes">Shoes</a>
-      <a href="#products-section" class="filter-btn" data-category="watch">Watches</a>
-      <a href="#products-section" class="filter-btn" data-category="bag">Bags</a>
-      <a href="#products-section" class="filter-btn" data-category="phone">Electronics</a>
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="virus-logo">
+            🦠
+        </div>
+
+        <div>
+            <strong>MAHARASHTRA</strong>
+            <span>COVID ANALYTICS</span>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#dashboard"
+           class="active">
+
+            🏠
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="#districts">
+
+            📍
+            <span>Districts</span>
+
+        </a>
+
+
+        <a href="#database">
+
+            🗄️
+            <span>Database</span>
+
+        </a>
+
+
+        <a href="#graphs">
+
+            📊
+            <span>Graphs</span>
+
+        </a>
+
+
+        <a href="#prediction">
+
+            🧠
+            <span>Prediction</span>
+
+        </a>
+
+
+        <a href="#theory">
+
+            📖
+            <span>Theory</span>
+
+        </a>
+
+
+        <a href="#report">
+
+            📄
+            <span>Report</span>
+
+        </a>
+
     </nav>
-    <div class="search-filter">
-      <input type="text" id="searchInput" placeholder="🔍 Search products...">
-      <button class="search-btn" onclick="applyFilters()">Search</button>
+
+
+    <!-- Information box -->
+
+    <div class="sidebar-info">
+
+        <div class="info-icon">
+            📅
+        </div>
+
+        <p>
+            First Case in Maharashtra
+        </p>
+
+        <strong>
+            09 March 2020
+        </strong>
+
+        <small>
+            Pune
+        </small>
+
+
+        <div class="info-row">
+
+            <span>✈️</span>
+
+            <div>
+
+                <small>
+                    Arrival Date
+                </small>
+
+                <strong>
+                    09 February 2020
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span>📊</span>
+
+            <div>
+
+                <small>
+                    Data as of
+                </small>
+
+                <strong>
+                    20 January 2022
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <span>🏢</span>
+
+            <div>
+
+                <small>
+                    Total Districts
+                </small>
+
+                <strong>
+                    36
+                </strong>
+
+            </div>
+
+        </div>
+
     </div>
-    <div id="products-grid" class="products-grid"></div>
-  </section>
 
-  <footer style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; text-align: center; padding: 3rem 2rem; margin-top: 5rem;">
-    <h3>Strikes E-Commerce</h3>
-    <p>123 Business Street, Mumbai, India 400001</p>
-    <p>Phone: +91 98765 43210 | Email: info@strikes.com</p>
-    <p>&copy; 2024 Strikes. All rights reserved.</p>
-  </footer>
+</aside>
 
-  <!-- Modals -->
-  <div id="product-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('product-modal')">&times;</span>
-      <div id="product-details"></div>
-    </div>
-  </div>
 
-  <div id="cart-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('cart-modal')">&times;</span>
-      <h2>🛒 Shopping Cart</h2>
-      <div id="cart-items-modal"></div>
-      <div class="total" id="total-price-modal">$0.00</div>
-      <button id="proceedBtn" onclick="showCheckoutModal()">Proceed to Checkout</button>
-    </div>
-  </div>
+<!-- ================= MAIN CONTENT ================= -->
 
-  <div id="checkout-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('checkout-modal')">&times;</span>
-      <h2>💳 Checkout</h2>
-      <form id="checkout-form" class="checkout-form">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Delivery Address" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <button type="submit">Complete Order</button>
-      </form>
-    </div>
-  </div>
+<main class="main">
 
-  <script src="script.js"></script>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div>
+
+            <h1>
+                Maharashtra COVID-19 Dashboard
+            </h1>
+
+            <p>
+                District-wise cases, deaths & recovery analysis
+            </p>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <select id="headerDate">
+
+                <option>
+                    20 January 2022
+                </option>
+
+            </select>
+
+
+            <div class="admin">
+
+                👤
+
+                <span>
+                    Admin
+                </span>
+
+                ▼
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= STAT CARDS ================= -->
+
+    <section class="stats">
+
+
+        <div class="stat-card blue">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div>
+
+                <span>
+                    CONFIRMED CASES
+                </span>
+
+                <h2>
+                    7,371,757
+                </h2>
+
+                <small>
+                    Total Cases
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card red">
+
+            <div class="stat-icon">
+                ☠️
+            </div>
+
+            <div>
+
+                <span>
+                    TOTAL DEATHS
+                </span>
+
+                <h2>
+                    141,971
+                </h2>
+
+                <small>
+                    Total Deaths
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card green">
+
+            <div class="stat-icon">
+                ❤️
+            </div>
+
+            <div>
+
+                <span>
+                    RECOVERED
+                </span>
+
+                <h2>
+                    6,967,432
+                </h2>
+
+                <small>
+                    Total Recovered
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card orange">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div>
+
+                <span>
+                    ACTIVE CASES
+                </span>
+
+                <h2>
+                    258,569
+                </h2>
+
+                <small>
+                    Active Cases
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card purple">
+
+            <div class="stat-icon">
+                📈
+            </div>
+
+            <div>
+
+                <span>
+                    FATALITY RATE
+                </span>
+
+                <h2>
+                    1.93%
+                </h2>
+
+                <small>
+                    Percentage
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FILTER ================= -->
+
+    <section class="filter-box"
+             id="districts">
+
+        <label>
+            Select District:
+        </label>
+
+
+        <select id="districtSelect"
+                onchange="filterDistrict()">
+
+            <option value="All">
+                All Maharashtra
+            </option>
+
+            <option value="Pune">
+                Pune
+            </option>
+
+            <option value="Mumbai">
+                Mumbai
+            </option>
+
+            <option value="Thane">
+                Thane
+            </option>
+
+            <option value="Nagpur">
+                Nagpur
+            </option>
+
+            <option value="Nashik">
+                Nashik
+            </option>
+
+            <option value="Kolhapur">
+                Kolhapur
+            </option>
+
+        </select>
+
+
+        <label>
+            From Date:
+        </label>
+
+        <input type="date"
+               id="startDate"
+               value="2020-03-09">
+
+
+        <label>
+            To Date:
+        </label>
+
+        <input type="date"
+             id="endDate"
+               value="2022-01-20">
+
+
+        <button onclick="filterDistrict()">
+
+            🔎 Filter
+
+        </button>
+
+
+        <button class="reset"
+                onclick="resetFilter()">
+
+            ↻ Reset
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ================= HISTORICAL DISTRICT MAP ================= -->
+
+    <section class="panel historical-map-panel"
+             id="historicalMapSection">
+
+        <div class="map-heading">
+            <div>
+                <h3>🗺️ Maharashtra District Map</h3>
+                <p>Historical COVID-19 totals for 01 January 2019 to 31 December 2020</p>
+            </div>
+            <strong>2019–2020</strong>
+        </div>
+
+        <div class="map-body">
+            <div>
+                <div id="districtMap" aria-label="Maharashtra historical COVID-19 district map"></div>
+                <p id="districtMapStatus" class="district-map-status">Loading Maharashtra district boundaries...</p>
+            </div>
+            <div id="districtTooltip" class="district-tooltip" hidden></div>
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= GRAPHS ================= -->
+
+    <section class="graphs"
+             id="graphs">
+
+
+        <div class="graph-card">
+
+            <h3>
+                Daily New Cases
+            </h3>
+
+            <canvas id="casesChart"></canvas>
+
+        </div>
+
+
+        <div class="graph-card">
+
+            <h3 class="red-title">
+                Daily Deaths
+            </h3>
+
+            <canvas id="deathsChart"></canvas>
+
+        </div>
+
+
+        <div class="graph-card">
+
+            <h3 class="green-title">
+                Daily Recovered
+            </h3>
+
+            <canvas id="recoveredChart"></canvas>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= LOWER GRID ================= -->
+
+    <section class="lower-grid">
+
+
+        <!-- DATA TABLE -->
+
+        <div class="panel data-panel">
+
+            <h3>
+                📄 Daily COVID Data
+                (District Level)
+            </h3>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                District
+                            </th>
+
+                            <th>
+                                New Cases
+                            </th>
+
+                            <th>
+                                Daily Deaths
+                            </th>
+
+                            <th>
+                                Daily Recovered
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="covidTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="pagination">
+
+                <button>
+                    ‹
+                </button>
+
+                <button class="selected">
+                    1
+                </button>
+
+                <button>
+                    2
+                </button>
+
+                <button>
+                    3
+                </button>
+
+                <button>
+                    4
+                </button>
+
+                <button>
+                    5
+                </button>
+
+                <span>
+                    ...
+                </span>
+
+                <button>
+                    100
+                </button>
+
+                <button>
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DATABASE -->
+
+        <div class="panel"
+             id="database">
+
+            <h3>
+                🗄️ Database Structure
+            </h3>
+
+
+            <div class="db-card purple-bg">
+
+                <h4>
+                    districts
+                </h4>
+
+                <b>
+                    Columns: 3
+                </b>
+
+                <ul>
+
+                    <li>
+                        district_id (INT, PK)
+                    </li>
+
+                    <li>
+                        district_name (VARCHAR)
+                    </li>
+
+                    <li>
+                        state (VARCHAR)
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="db-card blue-bg">
+
+                <h4>
+                    covid_daily
+                </h4>
+
+                <b>
+                    Columns: 6
+                </b>
+
+                <ul>
+
+                    <li>
+                        record_id (BIGINT, PK)
+                    </li>
+
+                    <li>
+                        district_id (INT, FK)
+                    </li>
+
+                    <li>
+                        report_date (DATE)
+                    </li>
+
+                    <li>
+                        new_cases (INT)
+                    </li>
+
+                    <li>
+                        daily_deaths (INT)
+                    </li>
+
+                    <li>
+                        daily_recovered (INT)
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="db-card green-bg">
+
+                <h4>
+                    covid_totals
+                </h4>
+
+                <b>
+                    Columns: 6
+                </b>
+
+                <ul>
+
+                    <li>
+                        total_id (BIGINT, PK)
+                    </li>
+
+                    <li>
+                        district_id (INT, FK)
+                    </li>
+
+                    <li>
+                        report_date (DATE)
+                    </li>
+
+                    <li>
+                        total_cases (INT)
+                    </li>
+
+                    <li>
+                        total_deaths (INT)
+                    </li>
+
+                    <li>
+                        total_recovered (INT)
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- ================= BOTTOM SECTION (Prediction + Theory + Report) ================= -->
+
+    <section class="bottom-section">
+
+
+        <!-- PREDICTION -->
+
+        <div class="panel"
+             id="prediction">
+
+            <h3>
+                🧠 ML Prediction
+            </h3>
+
+
+            <div class="prediction">
+
+                <p>Predicted Daily Metrics</p>
+
+                <small>
+                    Next 7 Days
+                </small>
+
+                <div class="prediction-metrics">
+                    <div>
+                        <span>Cases</span>
+                        <strong id="predictedCases">—</strong>
+                    </div>
+                    <div>
+                        <span>Deaths</span>
+                        <strong id="predictedDeaths">—</strong>
+                    </div>
+                    <div>
+                        <span>Recovered</span>
+                        <strong id="predictedRecovered">—</strong>
+                    </div>
+                </div>
+
+                <p>
+                    Model: Linear Regression
+                </p>
+
+                <p id="predictionHistory">Based on database history</p>
+
+                <p id="predictionAccuracy">Model accuracy will appear after filtering.</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel"
+             id="theory">
+
+            <h3>
+                📖 Theory
+            </h3>
+
+
+            <ul class="theory-list">
+
+                <li>
+                    ✓ COVID-19 Overview
+                </li>
+
+                <li>
+                    ✓ DBMS Concepts
+                </li>
+
+                <li>
+                    ✓ MySQL
+                </li>
+
+                <li>
+                    ✓ Normalization
+                </li>
+
+                <li>
+                    ✓ Primary & Foreign Keys
+                </li>
+
+                <li>
+                    ✓ Regression (ML)
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="report"
+             id="report"
+             onclick="printReport()">
+
+            📄
+
+            <div>
+
+                <strong>
+                    Generate Report
+                </strong>
+
+                <small>
+                    Download project report
+                </small>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2024 Maharashtra COVID Analytics
+
+        <span>
+            DBMS Mini Project
+        </span>
+
+        <span>
+            Developed using HTML, CSS, JS & MySQL
+        </span>
+
+    </footer>
+
+</main>
+
+
+<!-- JavaScript -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+<script>
+    // Detect if accessing via LAN and apply lan-view class
+    if (window.location.hostname === "192.168.0.101") {
+        document.body.classList.add("lan-view");
+    }
+</script>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
