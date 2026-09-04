@@ -12,9 +12,27 @@ let districtLayer;
 let selectedDistrictLayer;
 let selectedDistrict = null;
 
-const API_BASE = window.location.protocol === "file:"
-    ? "http://127.0.0.1:5000"
-    : window.location.origin;
+const API_BASE = (() => {
+    const customBase = new URLSearchParams(window.location.search).get("api");
+    if (customBase) {
+        return customBase.replace(/\/$/, "");
+    }
+
+    const configuredBase = window.COVID_API_BASE || window.API_BASE;
+    if (configuredBase) {
+        return configuredBase.replace(/\/$/, "");
+    }
+
+    if (window.location.protocol === "file:") {
+        return "http://127.0.0.1:5000";
+    }
+
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        return "http://127.0.0.1:5000";
+    }
+
+    return "https://covid-prediction.onrender.com";
+})();
 
 async function fetchJson(endpoint) {
     const urls = [
@@ -34,7 +52,7 @@ async function fetchJson(endpoint) {
         }
     }
 
-    throw new Error(`Could not fetch ${endpoint}`);
+    throw new Error(`Could not fetch ${endpoint}. Set a valid backend URL via ?api=... or window.COVID_API_BASE.`);
 }
 
 function formatNumber(value) {
